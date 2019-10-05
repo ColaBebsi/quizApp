@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+</head>
+<body>
+    <!-- GET USERNAME AND SELECT AMOUNT OF QUESTIONS -->
+<div>
+    <input type="text" placeholder="Type your name...">    
+</div>
+<br><br><br>
+    <!-- DISPLAY QUIZ -->
+    <div class="qPanel">
+        <h1>QUIZ</h1>
+
+        <div id="question"></div>
+        <div>
+            <input type="checkbox" name="options" id="opt1">
+            <label for="opt1" id="displayOpt1">1</label>
+        </div>
+        <div>
+            <input type="checkbox" name="options" id="opt2">
+            <label for="opt2" id="displayOpt2">2</label>
+        </div>
+        <div>
+            <input type="checkbox" name="options" id="opt3">
+            <label for="opt3" id="displayOpt3">3</label>
+        </div>
+
+        <button id="btn">submit</button>
+    </div>
+    
+    <!-- SCORE & PLAY AGAIN -->
+
+    <script src="readjson.js"></script>
+    <script src="main1.js"></script>
+</body>
+</html>
