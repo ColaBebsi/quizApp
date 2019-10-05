@@ -8,17 +8,18 @@
 </head>
 <body>
     <!-- GET USERNAME AND SELECT AMOUNT OF QUESTIONS -->
-<div>
+<div id="input">
     <input type="text" value="Player" id="getName">
     <input type="number" min="1" max="5" value="1" id="getQuestions">    
     <button id="start">Start Game</button>
 </div>
 <br><br><br>
     <!-- DISPLAY QUIZ -->
-    <div class="qPanel">
+    <div  id="qPanel">
         <h1>QUIZ</h1>
 
         <div id="question"></div>
+        <h2 id="displayQuestionAmount">current question</h2>
         <div>
             <input type="checkbox" name="options" id="opt1">
             <label for="opt1" id="displayOpt1">1</label>

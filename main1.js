@@ -16,7 +16,9 @@ let playerName;
 let questionAmount;
 
 
-let json = getJSON("http://www.mocky.io/v2/5d91eaa9310000d4a910cbce");
+
+
+let json = getJSON("http://www.mocky.io/v2/5d98d6523400005d00f48abf");
 
 for (let question of json) {
     let x = new Question(question.q, question.opt1, question.opt2, question.opt3, question.answer);
@@ -40,6 +42,8 @@ let getName = document.getElementById("getName");
 let getQuestions = document.getElementById("getQuestions");
 let start = document.getElementById("start");
 let displayQuestionAmount = document.getElementById("displayQuestionAmount");
+let qPanel = document.getElementById("qPanel");
+let input = document.getElementById("input");
 
 
  // Show question and opt
@@ -47,10 +51,16 @@ let displayQuestionAmount = document.getElementById("displayQuestionAmount");
  displayOpt1.innerHTML = allQuestions[questionIndex].opt1;
  displayOpt2.innerHTML = allQuestions[questionIndex].opt2;
  displayOpt3.innerHTML = allQuestions[questionIndex].opt3;
+ displayQuestionAmount.innerHTML = questionIndex + 1 + "/" + questionAmount;
+
+ // styling
+
+result.style.display = "none";
+qPanel.style.display = "none";
+
 
 
 btn.addEventListener("click", function() {
-    console.log(allQuestions[questionIndex].q);
     check();
     updateQuestion();  
 });
@@ -71,7 +81,7 @@ function check() {
     //if (checkArray )
     if (checkArray == allQuestions[questionIndex].answer) {
         points++;
-    }   
+    }    
     console.log(points);
     console.log(allQuestions[questionIndex].answer);
     console.log(checkArray);
@@ -81,7 +91,10 @@ function check() {
 function updateQuestion() {
     //ändra innerHTML till nästa index
     if (questionIndex + 1 >= questionAmount) {
-        result.innerHTML = points + "/" + questionAmount; 
+        result.style.display = "block";
+        qPanel.style.display = "none";
+
+        result.innerHTML = getName.value + " fick " + points + "/" + questionAmount; 
     } else {
         questionIndex++;  
         checkArray = [];
@@ -103,12 +116,18 @@ function updateQuestion() {
     displayOpt1.innerHTML = allQuestions[questionIndex].opt1;
     displayOpt2.innerHTML = allQuestions[questionIndex].opt2;
     displayOpt3.innerHTML = allQuestions[questionIndex].opt3;
+    displayQuestionAmount.innerHTML = questionIndex + 1 + "/" + questionAmount;
+
 }
 
 start.addEventListener("click", function() {
+    
+input.style.display = "none";
+qPanel.style.display = "block";
     playerName = getName.value;
     questionAmount = getQuestions.value;
-    
+    displayQuestionAmount.innerHTML = questionIndex + 1 + "/" + questionAmount;
+
     
 })
 
