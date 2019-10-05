@@ -9,7 +9,9 @@
 <body>
     <!-- GET USERNAME AND SELECT AMOUNT OF QUESTIONS -->
 <div>
-    <input type="text" placeholder="Type your name...">    
+    <input type="text" value="Player" id="getName">
+    <input type="number" min="1" max="5" value="1" id="getQuestions">    
+    <button id="start">Start Game</button>
 </div>
 <br><br><br>
     <!-- DISPLAY QUIZ -->
@@ -34,6 +36,7 @@
     </div>
     
     <!-- SCORE & PLAY AGAIN -->
+    <div id="result">points</div>
 
     <script src="readjson.js"></script>
     <script src="main1.js"></script>

@@ -12,6 +12,9 @@ let questionIndex = 0; //för att
 let allQuestions = [];
 let checkArray = [];
 let points = 0;
+let playerName;
+let questionAmount;
+
 
 let json = getJSON("http://www.mocky.io/v2/5d91eaa9310000d4a910cbce");
 
@@ -20,6 +23,8 @@ for (let question of json) {
         allQuestions.push(x);
     
 }
+
+//let totalQuestions = allQuestions.length; 
 
 // referens
 let questionDisplayer = document.getElementById("question");
@@ -30,6 +35,11 @@ let displayOpt1 = document.getElementById("displayOpt1");
 let displayOpt2 = document.getElementById("displayOpt2");
 let displayOpt3 = document.getElementById("displayOpt3");
 let btn = document.getElementById("btn");
+let result = document.getElementById("result");
+let getName = document.getElementById("getName");
+let getQuestions = document.getElementById("getQuestions");
+let start = document.getElementById("start");
+let displayQuestionAmount = document.getElementById("displayQuestionAmount");
 
 
  // Show question and opt
@@ -70,18 +80,24 @@ function check() {
 
 function updateQuestion() {
     //ändra innerHTML till nästa index
-    questionIndex++;  
-    checkArray = [];
-    if (checkOpt1.checked == true) {
-        checkOpt1.checked = false;
-    } 
-    if (checkOpt2.checked == true) {
-        checkOpt2.checked = false;
-    }
-    if (checkOpt3.checked == true) {
-        checkOpt3.checked = false;
-    }
+    if (questionIndex + 1 >= questionAmount) {
+        result.innerHTML = points + "/" + questionAmount; 
+    } else {
+        questionIndex++;  
+        checkArray = [];
+        if (checkOpt1.checked == true) {
+            checkOpt1.checked = false;
+        } 
+        if (checkOpt2.checked == true) {
+            checkOpt2.checked = false;
+        }
+        if (checkOpt3.checked == true) {
+            checkOpt3.checked = false;
+        }
+        
 
+    }
+    
     // Show question and opt
     questionDisplayer.innerHTML = allQuestions[questionIndex].q;
     displayOpt1.innerHTML = allQuestions[questionIndex].opt1;
@@ -89,7 +105,16 @@ function updateQuestion() {
     displayOpt3.innerHTML = allQuestions[questionIndex].opt3;
 }
 
+start.addEventListener("click", function() {
+    playerName = getName.value;
+    questionAmount = getQuestions.value;
+    
+    
+})
 
+
+
+//Uppdatera 
 //Ta emot input för username och antal frågor
 //Starta quiz
 //Uppdatera quizen samt frågorna med submit
