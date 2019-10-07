@@ -8,7 +8,7 @@ class Question {
     }
 }
 // variabler
-let questionIndex = 0; //för att 
+let questionIndex = 0;  
 let allQuestions = [];
 let checkArray = [];
 let points = 0;
@@ -66,7 +66,7 @@ btn.addEventListener("click", function() {
 });
 
 function check() {
-    // kola om checkbox checked
+    // kolla om checkbox checked
     if (checkOpt1.checked == true) {
         checkArray.push(displayOpt1.innerHTML);
     } 
@@ -78,7 +78,6 @@ function check() {
     }
     
     // jämföra checked checkbox med answer
-    //if (checkArray )
     if (checkArray == allQuestions[questionIndex].answer) {
         points++;
     }    
@@ -94,7 +93,7 @@ function updateQuestion() {
         result.style.display = "block";
         qPanel.style.display = "none";
 
-        result.innerHTML = getName.value + " fick " + points + "/" + questionAmount; 
+        result.innerHTML = getName.value + " SCORE: " + points + "/" + questionAmount; 
     } else {
         questionIndex++;  
         checkArray = [];
@@ -140,5 +139,4 @@ qPanel.style.display = "block";
 //
 //avsluta quiz, visa resultat
 
-
-
+ 
