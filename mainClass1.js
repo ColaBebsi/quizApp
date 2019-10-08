@@ -41,7 +41,7 @@ class Quiz {
     }
 
     displayQuiz() {
-        let json = getJSON("http://www.mocky.io/v2/5d98d6523400005d00f48abf");
+        let json = getJSON("http://www.mocky.io/v2/5d9c531131000048002fc4b1");
 
         for (let question of json) {
             let foo = new Question(question.q, question.opt1, question.opt2, question.opt3, question.answer);
@@ -69,10 +69,11 @@ class Quiz {
         }
         
         // jämföra checked checkbox med answer
-        //if (checkArray )
-        if (this.checkArray == this.allQuestions[this.questionIndex].answer) {  
+        let arr = this.allQuestions[this.questionIndex].answer;
+
+        if(JSON.stringify(this.checkArray) == JSON.stringify(arr) || this.checkArray == arr) {
             this.points++;
-        }    
+        }
     }    
     
     updateQuestion() {
@@ -95,6 +96,7 @@ class Quiz {
                 checkOpt3.checked = false;
             }
         }
+
         
         // Show question and opt
         questionDisplayer.innerHTML = this.allQuestions[this.questionIndex].q;

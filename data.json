@@ -4,7 +4,7 @@
         "opt1" : "Mandarin Chinese",
         "opt2" : "English",
         "opt3" : "Spanish",
-        "answer" : ["English", "Mandarin Chinese"]
+        "answer" : ["Mandarin Chinese", "English"]
     },
     {
         "q" : "HTML stands for?",
@@ -25,7 +25,7 @@
         "opt1" : "Tokyo",
         "opt2" : "Delhi",
         "opt3" : "Shanghai",
-        "answer" : ["Delhi", "Tokyo"]
+        "answer" : ["Tokyo", "Delhi"]
     },
     {
         "q" : "Monkeys likes to eat:",

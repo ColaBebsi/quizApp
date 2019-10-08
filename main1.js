@@ -138,5 +138,3 @@ qPanel.style.display = "block";
 //Uppdatera quizen samt frågorna med submit
 //
 //avsluta quiz, visa resultat
-
- 
